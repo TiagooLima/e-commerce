@@ -3,7 +3,7 @@
 
 * {
     font-family: poppins, Arial, Helvetica, sans-serif;
-    box-sizing: content-box;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -67,4 +67,50 @@ nav a:hover {
 
 #botoesFinalCabecalho a:first-child img {
     width: 38px;
+}
+
+/*Main*/
+/*Banner Site*/
+#banner{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#textoBanner {
+    align-self: flex-start;
+    width: 50%;
+}
+
+
+
+
+/*Caixa de Itens*/
+#main1 {
+    width: 80%;
+    margin: 10px auto;
+    border: 1px solid red;
+    padding: 50px;
+}
+
+.caixaDeItens {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.caixa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    background-color: lightslategray;
+    padding: 15px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+.caixa img {
+    width: 200px;
 }
