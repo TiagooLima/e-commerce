@@ -14,6 +14,8 @@
 header {
     background-color: lightblue;
     border-bottom: 1px solid rgb(189, 189, 189);
+    position: fixed;
+    width: 100%;
 }
 
 .containerInterno {
@@ -69,33 +71,79 @@ nav a:hover {
     width: 38px;
 }
 
-/*Main*/
+/*=====Main======*/
+#main1 {
+    padding-top: 115px;
+}
+
+.margem {
+    width: 80%;
+    margin: auto;
+}
+
 /*Banner Site*/
+
 #banner{
+    background-color: rgb(220, 235, 255);
+    border-bottom: 1px solid rgb(189, 189, 189);
+    margin-bottom: 30px;
+}
+
+#banner>.margem {
     display: flex;
-    flex-direction: column;
-    padding: 10px;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    height:fit-content ;
+    padding: 20px;
 }
 
 #textoBanner {
-    align-self: flex-start;
+    width: 50%;
+    padding-right: 50px;
+}
+
+#textoBanner h2 {
+    margin-bottom: 20px;
+    font: bold 4em poppins, arial;
+}
+
+#textoBanner p {
+    font: 450 1.2em poppins,arial;
+}
+
+#textoBanner a button {
+    padding: 10px 20px;
+    background-color: rgb(57, 206, 255);
+    color: white;
+    border: 1px solid rgb(74, 152, 255);
+    border-radius: 20px;
+}
+
+#textoBanner a button:hover {
+    background-color: rgb(119, 178, 255);
+    color: black;
+    border: 1px solid rgb(160, 201, 255);
+    cursor: pointer;
+}
+
+#banner img {
+    border: 5px outset gray;
+    width: 50%;
+    justify-self: end;
+}
+
+#imagembanner img {
     width: 50%;
 }
 
 
-
-
 /*Caixa de Itens*/
-#main1 {
-    width: 80%;
-    margin: 10px auto;
-    border: 1px solid red;
-    padding: 50px;
-}
 
 .caixaDeItens {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 .caixa {
@@ -113,4 +161,150 @@ nav a:hover {
 
 .caixa img {
     width: 200px;
+}
+
+/* Rodape */
+footer{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(34, 126, 180);
+    height: 20vh;
+    color: rgb(241, 252, 213);
+}
+
+
+
+
+/*========- Responsividade*=======?/
+/* tablet */
+@media (max-width: 1024px) {
+ 
+    /*Margem do cabecalho*/
+    .containerInterno {
+        width: 95%;
+    }
+ 
+    /*Margem do main*/
+    .margem {
+        width: 95%;
+    }
+ 
+    /* título do banner reduzido */
+    #textoBanner h2 {
+        font-size: 2.8em;
+    }
+ 
+    /* itens do menu */
+    nav a {
+        margin: 10px;
+        font-size: 1em;
+    }
+}
+ 
+/* celular */
+@media (max-width: 768px) {
+ 
+    /* cabeçalho deixa de ser fixo e vira relative */
+    header {
+        position: relative;
+    }
+ 
+    /* remove o padding-top do main */
+    #main1 {
+        padding-top: 0;
+    }
+ 
+    /* containerInterno vira coluna e centraliza tudo */
+    .containerInterno {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+ 
+    /* logo do cabeçalho fica menor */
+    header .containerInterno > img {
+        height: 70px;
+        margin: 5px;
+    }
+ 
+    /* nav */
+    nav {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+ 
+    /* links do menu ficaram menor */
+    nav a {
+        margin: 5px;
+        font-size: 0.9em;
+        padding: 5px 10px;
+    }
+ 
+    /* botões margem menor */
+    #botoesFinalCabecalho a {
+        margin: 5px;
+    }
+ 
+    /* banner vira coluna — empilhado */
+    #banner > .margem {
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+ 
+    /* texto ocupa 100% */
+    #textoBanner {
+        width: 100%;
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+ 
+    /* título menor */
+    #textoBanner h2 {
+        font-size: 2em;
+    }
+ 
+    /* parágrafo do banner */
+    #textoBanner p {
+        font-size: 1em;
+    }
+ 
+    /* imagem do banner */
+    #banner img {
+        width: 100%;
+    }
+ 
+    /* cada caixa de produto ocupa a tela toda (sugerido por IA -- vou mudar depois) */
+    .caixa {
+        width: 90%;
+        max-width: 350px;
+    }
+ 
+    /* imagem maior da caixa (sugerido por IA -- vou mudar depois) */
+    .caixa img {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+ 
+/* celular minusculo */
+@media (max-width: 480px) {
+    
+    /* título do banner */
+    #textoBanner h2 {
+        font-size: 1.6em;
+    }
+ 
+    /* links do menu em coluna (sugerido por ia) */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer h2 {
+        font-size: 1em;
+    }
 }
