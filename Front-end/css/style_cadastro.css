@@ -10,8 +10,8 @@
 
 /*===============TELA DE LOGIN==============*/
 
-.escondida {
-    display: none;
+.escondido {
+    display: none !important;
 }
 
 body {
@@ -25,7 +25,7 @@ body {
     justify-content: center; align-items: center; /* Centraliza exatamente no cento */
 }
 
-#card_login {
+#card_login, #card_signin {
     background-color: rgb(255, 255, 255);
     position: relative; /*Para ser definido como pai de um elemento com posição absoluta */
     display: flex;
@@ -40,7 +40,7 @@ body {
     position: absolute;
     top: 25px;
     left: 25px;
-    background: url(../img/109617.png) no-repeat 2px;
+    background: url(../img/seta.png) no-repeat 2px;
     background-size: 22px;
     border: none;
     padding: 5px 10px 5px 25px;
@@ -53,7 +53,7 @@ body {
 }
 
 /*Imagem Login*/
-#card_login>img {
+#card_login>img, #card_signin>img {
     background-color: rgba(137, 241, 255, 0.623);
     padding: 8px;
     width: 10%;
@@ -73,7 +73,7 @@ body {
 }
 
 .input_div img {
-    width: 25px;
+    width: 30px;
     margin-right: 15px;
 }
 
@@ -87,22 +87,32 @@ body {
     outline: none;
 }
 
-#card_login p{
+p{
     font-size: 0.9em;
     margin-bottom: 15px;
     text-align: center;
 }
 
 form button{
-    background-color: rgb(58, 144, 255);
+    background-color: rgb(36, 87, 255);
     padding: 5px 15px;
     border: none;
     border-radius: 15px;
-    color: black
+    color: white;
 }
 
 form button:hover {
-    color: white;
-    background-color: rgb(36, 87, 255);
+    color: rgb(29, 29, 29);
+    background-color:rgb(109, 172, 255) ;
     cursor: pointer;
+}
+
+#trocarParaLogin, #trocarParaSignin{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#trocarParaLogin span, #trocarParaSignin span{
+    color: blue;
 }

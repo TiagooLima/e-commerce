@@ -8,32 +8,67 @@
 </head>
 <body>
     <div id="container">
-        <div id="card_login">
+        <!--Tela de Login-->
+        <div id="card_login" class="escondido">
             <a href="index.html"><button id="voltar_button">Voltar</button></a>
             
-            <img src="img/57546.png" alt="">
+            <img src="img/comercioIcon.png" alt="">
             <h2>Bem vindo!</h2>
             <p>Acesse sua conta ou cadastre-se no Dimatti!</p>
             
             <form action="">
                 <label for="email"><strong>E-mail</strong></label><br>
                 <div class="input_div">
-                    <img class="form" src="img/email-and-mail-icon-black-free.png" alt="">
-                    <input type="email" name="email" id="email" placeholder="Seu e-mail">
+                    <img class="form" src="img/emailIcon.png" alt="">
+                    <input required type="email" name="email" id="email" placeholder="Seu e-mail">
                 </div><br>
                 <label for="password"><strong>Senha</strong></label><br>
                 <div class="input_div">
                     <img src="img/cadeado.png" alt="">
-                    <input type="password" name="password" id="password" placeholder="Sua senha">
+                    <input required  type="password" name="password" id="password" placeholder="Sua senha">
                 </div><br>
 
                 <button type="submit">Entrar</button>
-            </form>
+            </form><br>
+            <button id="trocarParaSignin">Deseja <span>se cadastrar</span>?</button>
         </div>
-        <div id="card_signin" class="escondida">
-            <h1> Se cadastrar </h1>
-        </div>
+        <!--Tela de cadastro-->
+        <div id="card_signin" class="">
+            <a href="index.html"><button id="voltar_button">Voltar</button></a>
+            
+            <img src="img/comercioIcon.png" alt="">
+            <h2>Bem vindo!</h2>
+            <p>Cadastre-se no Dimatti!</p>
+            
+            <form action="">
+                <label for="nome"><strong>Nome</strong></label>
+                <div class="input_div">
+                    <img class="form" src="img/pessoaIcon.png" alt="">
+                    <input required type="text" name="nome" id="nome" placeholder="Seu nome">
+                </div><br>
 
+                <label for="idade"><strong>Data de nascimento</strong></label>
+                <div class="input_div">
+                    <img class="form" src="img/calendarioIcon.png" alt="">
+                    <input required type="date" max="2010-01-01" value="2026-01-01" name="nome" id="nome" placeholder="Seu nome">
+                </div><br>
+
+                <label for="email"><strong>E-mail</strong></label><br>
+                <div class="input_div">
+                    <img class="form" src="img/emailIcon.png" alt="">
+                    <input required type="email" name="email" id="email" placeholder="Seu e-mail">
+                </div><br>
+                <label for="password"><strong>Senha</strong></label><br>
+                <div class="input_div">
+                    <img src="img/cadeado.png" alt="">
+                    <input required type="password" name="password" id="password" placeholder="Sua senha">
+                </div><br>
+
+                <button type="submit" id="botaoCadastrar">Cadastrar</button>
+            </form><br>
+            <button id="trocarParaLogin">Deseja <span>fazer login</span>?</button>
+        </div>
     </div>
+    <script src="js/index.js"></script>
 </body>
 </html>
