@@ -10,7 +10,7 @@
 
 /*===============TELA DE LOGIN==============*/
 
-.escondido {
+#card_login.escondido, #card_signin.escondido {
     display: none !important;
 }
 
