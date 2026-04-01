@@ -8,11 +8,15 @@
     padding: 0;
 }
 
+:root {
+    --cor-predominante: rgb(50, 115, 255);
+}
+
 /* Layout */
 /* Cabecalho */
 
 header {
-    background-color: lightblue;
+    background-color: var(--cor-predominante);
     border-bottom: 1px solid rgb(189, 189, 189);
     position: fixed;
     width: 100%;
@@ -28,7 +32,7 @@ header {
 }
 
 header .containerInterno>img {
-    height: 100px;
+    height: 50px;
     margin: 10px;
 }
 
@@ -46,34 +50,55 @@ nav ul {
 nav a {
     text-decoration: none;
     margin: 25px;
-    color: black;
-    padding: 5px 15px;
+    color: #fff;
+    padding: 5px 10px;
     border-radius: 10px;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 nav a:hover {
-    background-color: rgb(222, 255, 251);
-    color: rgb(0, 0, 0);
+    color: rgb(171, 223, 238);
 }
 
 /*Botoes final do cabecalho */
 
+#botoesFinalCabecalho {
+    display: flex;
+}
+
 #botoesFinalCabecalho img {
-    width: 30px;
+    width: 17px;
+    margin-left: 5px;
 }   
 
 #botoesFinalCabecalho a {
     margin: 10px;
+    text-decoration: none;
+    color: white;
 }
 
-#botoesFinalCabecalho a:first-child img {
-    width: 38px;
+.botaoCarrinho a {
+    display: flex;
+    background-color: #ffffff2d;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.botaoCarrinho a:hover {
+    background-color: #ffffff6d;
+}
+
+.botaoCarrinho p {
+    font: 400 0.9em poppins;
+}
+
+.botaoCarrinho img{
+    margin-right: 5px;
 }
 
 /*=====Main======*/
 #main1 {
-    padding-top: 115px;
+    padding-top: 65px;
 }
 
 .margem {
