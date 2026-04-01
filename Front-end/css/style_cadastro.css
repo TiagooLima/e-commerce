@@ -36,7 +36,7 @@ body {
     width: 30%;
 }
 
-#voltar_button{
+.voltar_button{
     position: absolute;
     top: 25px;
     left: 25px;
@@ -47,7 +47,7 @@ body {
     border-radius: 15px;
 }
 
-#voltar_button:hover{
+.voltar_button:hover{
     background-color: rgba(207, 207, 207, 0.747);
     cursor: pointer;
 }
@@ -85,6 +85,10 @@ body {
 
 .input_div input:focus {
     outline: none;
+}
+
+.emailIcon {
+    width: 20px !important;
 }
 
 p{
@@ -169,7 +173,7 @@ form button:hover {
         border-radius: 12px;
     }
 
-    #voltar_button {
+    .voltar_button {
         top: 15px;
         left: 15px;
         font-size: 0.85em;
@@ -209,4 +213,53 @@ form button:hover {
     #trocarParaLogin, #trocarParaSignin {
         font-size: 0.88em;
     }
+}
+
+
+@media (min-width: 2000px){
+    #card_signin img, #card-login img{
+        width: 50px;
+    }
+    
+    h2 {
+        font-size: 2.2em
+    }
+
+    p{
+        font-size: 1.5em;
+    }
+
+    #card_login, #card_signin{
+        height: 65vh;
+        width: 25%;
+    }   
+
+    .input_div {
+        width: 400px;
+    }
+
+    .input_div input {
+        width: 330px;
+    }
+
+    #botaoCadastrar, #botaoEntrar {
+        font: 500 1.3em poppins, arial;
+    }
+
+    #trocarParaLogin, #trocarParaSignin {
+        font: 500 1.3em poppins, arial;
+    }
+
+    .voltar_button {
+        background-size: 27px;
+        font: 500 1.3em poppins,arial;
+        padding: 10px 15px 10px 30px;
+        border-radius: 15px;
+    }
+
+    .emailIcon {
+    width: 30px !important;
+    margin: 0 20px 0 10px;
+}
+
 }
