@@ -1,0 +1,265 @@
+@charset "Utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: poppins, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*===============TELA DE LOGIN==============*/
+
+#card_login.escondido, #card_signin.escondido {
+    display: none !important;
+}
+
+body {
+    background-color: rgb(50, 115, 255);
+}
+
+/*Layout*/
+#container {
+    height: 100vh;
+    display: flex;
+    justify-content: center; align-items: center; /* Centraliza exatamente no cento */
+}
+
+#card_login, #card_signin {
+    background-color: rgb(255, 255, 255);
+    position: relative; /*Para ser definido como pai de um elemento com posição absoluta */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; align-items: center;
+    padding: 30px;
+    border-radius: 20px;
+    width: 30%;
+}
+
+.voltar_button{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: url(../img/seta.png) no-repeat 2px;
+    background-size: 22px;
+    border: none;
+    padding: 5px 10px 5px 25px;
+    border-radius: 15px;
+}
+
+.voltar_button:hover{
+    background-color: rgba(207, 207, 207, 0.747);
+    cursor: pointer;
+}
+
+/*Imagem Login*/
+#card_login>img, #card_signin>img {
+    background-color: rgba(137, 241, 255, 0.623);
+    padding: 8px;
+    width: 10%;
+    border-radius: 10px;
+}
+/*Input div*/
+.input_div {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(190, 190, 190);
+}
+
+.input_div:focus-within{
+    border: 1px solid rgba(0, 119, 255, 0.521);
+}
+
+.input_div img {
+    width: 30px;
+    margin-right: 15px;
+}
+
+.input_div input{
+    border: none;
+    background-color: none;
+    width: 200px;
+}
+
+.input_div input:focus {
+    outline: none;
+}
+
+.emailIcon {
+    width: 20px !important;
+}
+
+p{
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+form button{
+    background-color: rgb(36, 87, 255);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+}
+
+form button:hover {
+    color: rgb(29, 29, 29);
+    background-color:rgb(109, 172, 255) ;
+    cursor: pointer;
+}
+
+#trocarParaLogin, #trocarParaSignin{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#trocarParaLogin span, #trocarParaSignin span{
+    color: blue;
+}
+/* teste*/
+/* =============== RESPONSIVIDADE =============== */
+
+/* Tablet — telas entre 481px e 1024px */
+@media (max-width: 1024px) {
+    #card_login, #card_signin {
+        width: 55%;
+        padding: 35px 30px;
+    }
+
+    #card_login>img, #card_signin>img {
+        width: 14%;
+    }
+}
+
+/* Mobile grande — telas entre 481px e 768px */
+@media (max-width: 768px) {
+    #container {
+        height: auto;
+        min-height: 100vh;
+        padding: 40px 20px;
+        align-items: flex-start;
+    }
+
+    #card_login, #card_signin {
+        width: 80%;
+        padding: 40px 25px 30px;
+        border-radius: 16px;
+        margin: 0 auto;
+    }
+
+    #card_login>img, #card_signin>img {
+        width: 16%;
+    }
+
+    .input_div input {
+        font-size: 0.95em;
+    }
+}
+
+/* Mobile pequeno — telas até 480px */
+@media (max-width: 480px) {
+    #container {
+        padding: 30px 16px;
+        align-items: flex-start;
+    }
+
+    #card_login, #card_signin {
+        width: 100%;
+        padding: 50px 20px 25px;
+        border-radius: 12px;
+    }
+
+    .voltar_button {
+        top: 15px;
+        left: 15px;
+        font-size: 0.85em;
+    }
+
+    #card_login>img, #card_signin>img {
+        width: 20%;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.82em;
+    }
+
+    .input_div {
+        padding: 6px 10px;
+    }
+
+    .input_div img {
+        width: 22px;
+        margin-right: 10px;
+    }
+
+    .input_div input {
+        font-size: 0.9em;
+    }
+
+    form button {
+        width: 100%;
+        padding: 8px 15px;
+        font-size: 0.95em;
+    }
+
+    #trocarParaLogin, #trocarParaSignin {
+        font-size: 0.88em;
+    }
+}
+
+
+@media (min-width: 2000px){
+    #card_signin img, #card-login img{
+        width: 50px;
+    }
+    
+    h2 {
+        font-size: 2.2em
+    }
+
+    p{
+        font-size: 1.5em;
+    }
+
+    #card_login, #card_signin{
+        height: 65vh;
+        width: 25%;
+    }   
+
+    .input_div {
+        width: 400px;
+    }
+
+    .input_div input {
+        width: 330px;
+    }
+
+    #botaoCadastrar, #botaoEntrar {
+        font: 500 1.3em poppins, arial;
+    }
+
+    #trocarParaLogin, #trocarParaSignin {
+        font: 500 1.3em poppins, arial;
+    }
+
+    .voltar_button {
+        background-size: 27px;
+        font: 500 1.3em poppins,arial;
+        padding: 10px 15px 10px 30px;
+        border-radius: 15px;
+    }
+
+    .emailIcon {
+    width: 30px !important;
+    margin: 0 20px 0 10px;
+}
+
+}

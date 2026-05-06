@@ -1,0 +1,335 @@
+@charset "Utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: poppins, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor-predominante: rgb(50, 115, 255);
+}
+
+/* Layout */
+/* Cabecalho */
+
+header {
+    background-color: var(--cor-predominante);
+    border-bottom: 1px solid rgb(189, 189, 189);
+    position: fixed;
+    width: 100%;
+}
+
+.containerInterno {
+    width: 80%;
+    margin: 0 auto;
+
+    /* FlexBox */
+    display: flex;
+    align-items: center;
+}
+
+header .containerInterno>img {
+    height: 50px;
+    margin: 10px;
+}
+
+/* Menu de Navegação */
+nav {
+    flex-grow: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 25px;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+nav a:hover {
+    color: rgb(171, 223, 238);
+}
+
+/*Botoes final do cabecalho */
+
+#botoesFinalCabecalho {
+    display: flex;
+}
+
+#botoesFinalCabecalho img {
+    width: 17px;
+    margin-left: 5px;
+}   
+
+#botoesFinalCabecalho a {
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.botaoCarrinho a {
+    display: flex;
+    background-color: #ffffff2d;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.botaoCarrinho a:hover {
+    background-color: #ffffff6d;
+}
+
+.botaoCarrinho p {
+    font: 400 0.9em poppins;
+}
+
+.botaoCarrinho img{
+    margin-right: 5px;
+}
+
+/*=====Main======*/
+#main1 {
+    padding-top: 65px;
+}
+
+.margem {
+    width: 80%;
+    margin: auto;
+}
+
+/*Banner Site*/
+
+#banner{
+    background-color: rgb(220, 235, 255);
+    border-bottom: 1px solid rgb(189, 189, 189);
+    margin-bottom: 30px;
+}
+
+#banner>.margem {
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    height:fit-content ;
+    padding: 20px;
+}
+
+#textoBanner {
+    width: 50%;
+    padding-right: 50px;
+}
+
+#textoBanner h2 {
+    margin-bottom: 20px;
+    font: bold 4em poppins, arial;
+}
+
+#textoBanner p {
+    font: 450 1.2em poppins,arial;
+}
+
+#textoBanner a button {
+    padding: 10px 20px;
+    background-color: rgb(57, 206, 255);
+    color: white;
+    border: 1px solid rgb(74, 152, 255);
+    border-radius: 20px;
+}
+
+#textoBanner a button:hover {
+    background-color: rgb(119, 178, 255);
+    color: black;
+    border: 1px solid rgb(160, 201, 255);
+    cursor: pointer;
+}
+
+#banner img {
+    border: 5px outset gray;
+    width: 50%;
+    justify-self: end;
+}
+
+#imagembanner img {
+    width: 50%;
+}
+
+
+/*Caixa de Itens*/
+
+.caixaDeItens {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.caixa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    background-color: lightslategray;
+    padding: 15px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+.caixa img {
+    width: 200px;
+}
+
+/* Rodape */
+footer{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(34, 126, 180);
+    height: 20vh;
+    color: rgb(241, 252, 213);
+}
+
+
+
+
+/*========- Responsividade*=======?/
+/* tablet */
+@media (max-width: 1024px) {
+ 
+    /*Margem do cabecalho*/
+    .containerInterno {
+        width: 95%;
+    }
+ 
+    /*Margem do main*/
+    .margem {
+        width: 95%;
+    }
+ 
+    /* título do banner reduzido */
+    #textoBanner h2 {
+        font-size: 2.8em;
+    }
+ 
+    /* itens do menu */
+    nav a {
+        margin: 10px;
+        font-size: 1em;
+    }
+}
+ 
+/* celular */
+@media (max-width: 768px) {
+ 
+    /* cabeçalho deixa de ser fixo e vira relative */
+    header {
+        position: relative;
+    }
+ 
+    /* remove o padding-top do main */
+    #main1 {
+        padding-top: 0;
+    }
+ 
+    /* containerInterno vira coluna e centraliza tudo */
+    .containerInterno {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+ 
+    /* logo do cabeçalho fica menor */
+    header .containerInterno > img {
+        height: 70px;
+        margin: 5px;
+    }
+ 
+    /* nav */
+    nav {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+ 
+    /* links do menu ficaram menor */
+    nav a {
+        margin: 5px;
+        font-size: 0.9em;
+        padding: 5px 10px;
+    }
+ 
+    /* botões margem menor */
+    #botoesFinalCabecalho a {
+        margin: 5px;
+    }
+ 
+    /* banner vira coluna — empilhado */
+    #banner > .margem {
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+ 
+    /* texto ocupa 100% */
+    #textoBanner {
+        width: 100%;
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+ 
+    /* título menor */
+    #textoBanner h2 {
+        font-size: 2em;
+    }
+ 
+    /* parágrafo do banner */
+    #textoBanner p {
+        font-size: 1em;
+    }
+ 
+    /* imagem do banner */
+    #banner img {
+        width: 100%;
+    }
+ 
+    /* cada caixa de produto ocupa a tela toda (sugerido por IA -- vou mudar depois) */
+    .caixa {
+        width: 90%;
+        max-width: 350px;
+    }
+ 
+    /* imagem maior da caixa (sugerido por IA -- vou mudar depois) */
+    .caixa img {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+ 
+/* celular minusculo */
+@media (max-width: 480px) {
+    
+    /* título do banner */
+    #textoBanner h2 {
+        font-size: 1.6em;
+    }
+ 
+    /* links do menu em coluna (sugerido por ia) */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer h2 {
+        font-size: 1em;
+    }
+}
