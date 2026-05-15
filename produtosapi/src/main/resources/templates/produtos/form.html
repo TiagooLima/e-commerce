@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+    <title th:text="${produto.id != null ? 'Editar Produto' : 'Novo Produto'}">Produto</title>
+</head>
+<body>
+<main>
+    <div class="page-header">
+        <div class="page-header-inner">
+            <div class="page-title-block">
+                <p class="page-label">
+                    <a th:href="@{/produtos}" class="breadcrumb-link">Produtos</a>
+                    <span class="breadcrumb-sep"> / </span>
+                    <span th:text="${produto.id != null ? 'Editar' : 'Novo'}">Novo</span>
+                </p>
+                <h1 class="page-title" th:text="${produto.id != null ? 'Editar Produto' : 'Novo Produto'}">Produto</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <form th:action="${produto.id != null ? '/produtos/' + produto.id + '/atualizar' : '/produtos'}"
+              th:object="${produto}"
+              method="post"
+              class="produto-form">
+
+            <!-- Editing: override to PUT -->
+            <input th:if="${produto.id != null}" type="hidden" name="_method" value="PUT"/>
+
+            <div class="form-grid">
+                <div class="form-group form-group-full">
+                    <label class="form-label" for="nome">Nome do Produto</label>
+                    <input type="text"
+                           id="nome"
+                           th:field="*{nome}"
+                           class="form-input"
+                           placeholder="Ex: Hambúrguer Artesanal"
+                           required/>
+                    <div th:if="${#fields.hasErrors('nome')}" class="form-error" th:errors="*{nome}"></div>
+                </div>
+
+                <div class="form-group form-group-full">
+                    <label class="form-label" for="descricao">Descrição</label>
+                    <textarea id="descricao"
+                              th:field="*{descricao}"
+                              class="form-input form-textarea"
+                              placeholder="Descreva o produto..."
+                              rows="3"></textarea>
+                    <div th:if="${#fields.hasErrors('descricao')}" class="form-error" th:errors="*{descricao}"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="categoria">Status / Categoria</label>
+                    <div class="select-wrapper">
+                        <select id="categoria"
+                                th:field="*{categoria}"
+                                class="form-input form-select"
+                                required>
+                            <option value="">Selecione um status...</option>
+                            <option th:each="cat : ${categorias}"
+                                    th:value="${cat}"
+                                    th:text="${cat.name().replace('_', ' ')}">
+                            </option>
+                        </select>
+                        <span class="select-arrow">▾</span>
+                    </div>
+                    <div th:if="${#fields.hasErrors('categoria')}" class="form-error" th:errors="*{categoria}"></div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a th:href="@{/produtos}" class="btn btn-ghost">Cancelar</a>
+                <button type="submit" class="btn btn-primary">
+                    <span th:text="${produto.id != null ? '✓ Salvar Alterações' : '+ Criar Produto'}">Salvar</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

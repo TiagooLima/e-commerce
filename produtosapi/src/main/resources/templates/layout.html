@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(title, content)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Produtos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<nav class="navbar">
+    <a th:href="@{/produtos}" class="navbar-brand">
+        <span class="brand-icon">▣</span>
+        <span class="brand-text">PRODUTOS</span>
+    </a>
+    <div class="navbar-links">
+        <a th:href="@{/produtos}" class="nav-link">Todos</a>
+        <a th:href="@{/produtos/novo}" class="nav-link nav-cta">+ Novo</a>
+    </div>
+</nav>
+
+<main class="main-content" th:replace="${content}">
+</main>
+
+<footer class="footer">
+    <span>Sistema de Gestão de Produtos</span>
+</footer>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

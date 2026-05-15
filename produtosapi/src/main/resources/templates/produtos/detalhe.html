@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+    <title th:text="${produto.nome + ' — Detalhes'}">Produto</title>
+</head>
+<body>
+<main>
+    <div class="page-header">
+        <div class="page-header-inner">
+            <div class="page-title-block">
+                <p class="page-label">
+                    <a th:href="@{/produtos}" class="breadcrumb-link">Produtos</a>
+                    <span class="breadcrumb-sep"> / </span>
+                    <span th:text="${produto.nome}">Nome</span>
+                </p>
+                <h1 class="page-title" th:text="${produto.nome}">Nome do Produto</h1>
+            </div>
+            <div class="header-actions">
+                <a th:href="@{/produtos/{id}/editar(id=${produto.id})}" class="btn btn-secondary">✎ Editar</a>
+                <form th:action="@{/produtos/{id}/deletar(id=${produto.id})}" method="post"
+                      onsubmit="return confirmDelete(this)">
+                    <input type="hidden" name="_method" value="DELETE"/>
+                    <button type="submit" class="btn btn-danger">✕ Excluir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-container">
+        <div class="detail-card">
+            <div class="detail-header">
+                <span class="status-badge status-large"
+                      th:text="${produto.categoria.name().replace('_', ' ')}"
+                      th:classappend="${'status-' + produto.categoria.name().toLowerCase().replace('_', '-')}">
+                    STATUS
+                </span>
+            </div>
+
+            <div class="detail-grid">
+                <div class="detail-field">
+                    <span class="detail-label">ID</span>
+                    <span class="detail-value detail-mono" th:text="${produto.id}">—</span>
+                </div>
+
+                <div class="detail-field">
+                    <span class="detail-label">Nome</span>
+                    <span class="detail-value" th:text="${produto.nome}">—</span>
+                </div>
+
+                <div class="detail-field detail-field-full">
+                    <span class="detail-label">Descrição</span>
+                    <span class="detail-value" th:text="${produto.descricao ?: 'Sem descrição'}">—</span>
+                </div>
+
+                <div class="detail-field">
+                    <span class="detail-label">Categoria</span>
+                    <span class="detail-value" th:text="${produto.categoria}">—</span>
+                </div>
+
+                <div class="detail-field">
+                    <span class="detail-label">Criado em</span>
+                    <span class="detail-value detail-mono"
+                          th:text="${#temporals.format(produto.data, 'dd/MM/yyyy — HH:mm')}">—</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-nav">
+            <a th:href="@{/produtos}" class="btn btn-ghost">← Voltar para lista</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>

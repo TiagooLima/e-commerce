@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+    <title>Produtos — Lista</title>
+</head>
+<body>
+<main>
+    <div class="page-header">
+        <div class="page-header-inner">
+            <div class="page-title-block">
+                <p class="page-label">Gestão</p>
+                <h1 class="page-title">Produtos</h1>
+            </div>
+            <a th:href="@{/produtos/novo}" class="btn btn-primary">
+                <span class="btn-icon">+</span> Novo Produto
+            </a>
+        </div>
+        <div class="page-stats">
+            <div class="stat-chip">
+                <span class="stat-num" th:text="${#lists.size(produtos)}">0</span>
+                <span class="stat-label">registros</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert messages -->
+    <div th:if="${sucesso}" class="alert alert-success" th:text="${sucesso}"></div>
+    <div th:if="${erro}" class="alert alert-error" th:text="${erro}"></div>
+
+    <div class="table-container">
+        <table class="table" th:if="${not #lists.isEmpty(produtos)}">
+            <thead>
+                <tr>
+                    <th class="th-id">ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Criado em</th>
+                    <th class="th-actions">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="produto : ${produtos}" class="table-row">
+                    <td class="td-id">
+                        <span class="id-badge" th:text="${#strings.abbreviate(produto.id, 8)}">abc123</span>
+                    </td>
+                    <td class="td-nome">
+                        <span th:text="${produto.nome}">Nome</span>
+                    </td>
+                    <td class="td-desc">
+                        <span th:text="${produto.descricao}">Descrição</span>
+                    </td>
+                    <td>
+                        <span class="status-badge"
+                              th:text="${produto.categoria}"
+                              th:classappend="${'status-' + produto.categoria.name().toLowerCase().replace('_', '-')}">
+                            STATUS
+                        </span>
+                    </td>
+                    <td class="td-data">
+                        <span th:text="${#temporals.format(produto.data, 'dd/MM/yyyy HH:mm')}">00/00/0000</span>
+                    </td>
+                    <td class="td-actions">
+                        <a th:href="@{/produtos/{id}(id=${produto.id})}" class="btn-action btn-view" title="Ver detalhes">
+                            ⊙
+                        </a>
+                        <a th:href="@{/produtos/{id}/editar(id=${produto.id})}" class="btn-action btn-edit" title="Editar">
+                            ✎
+                        </a>
+                        <form th:action="@{/produtos/{id}/deletar(id=${produto.id})}" method="post"
+                              style="display:inline"
+                              onsubmit="return confirmDelete(this)">
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <button type="submit" class="btn-action btn-delete" title="Excluir">✕</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="empty-state" th:if="${#lists.isEmpty(produtos)}">
+            <div class="empty-icon">◫</div>
+            <h3 class="empty-title">Nenhum produto cadastrado</h3>
+            <p class="empty-sub">Comece adicionando seu primeiro produto.</p>
+            <a th:href="@{/produtos/novo}" class="btn btn-primary">Adicionar produto</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>
